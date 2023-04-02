@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ТК «Карго Сервис» - грузоперевозки по России, доставка грузов по Москве, страхование грузов, возвратные документы, объявленная ценность">
+    <title>ТК «Карго Сервис» - грузоперевозки по России, доставка грузов по Москве</title>
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="body">
+    <div class="wrapper">
+        <header class="header fixed-block">
+            <div class="container container--large">
+                <nav class="header__wrapper">
+                    <a class="header__logo logo" href="#" data-goto="#hero">
+                        <img class="logo__img" src="img/logo-main.png" alt="Логотип ТК «Карго Сервис»" width="200" height="52">
+                    </a>
+                    <div class="header__content" data-menu>
+                        <ul class="header__menu">
+                            <li class="header__item">
+                                <a class="header__link" href="#" data-goto="#about" data-menu-link>
+                                    <span class="header__icon" style="background-image: url('img/header/1.svg');" aria-hidden></span>
+                                    О нас</a>
+                            </li>
+                            <li class="header__item">
+                                <a class="header__link" href="#" data-goto="#services" data-menu-link>
+                                    <span class="header__icon" style="background-image: url('img/header/1.svg');" aria-hidden></span>
+                                    Услуги
+                                </a>
+                            </li>
+                            <li class="header__item">
+                                <a class="header__link" href="#" data-goto="#contacts" data-menu-link>
+                                    <span class="header__icon" style="background-image: url('img/header/1.svg');" aria-hidden></span>
+                                    Контакты
+                                </a>
+                            </li>
+                            <li class="header__item">
+                                <a class="header__link header__link--account" href="#" data-menu-link>
+                                    <span class="header__icon" style="background-image: url('img/header/2.svg');" aria-hidden></span>
+                                    Личный кабинет
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="connect header__connect">
+                            <a class="connect__phone" href="tel:+74959885516">+7 (495) 988-55-16</a>
+                            <button class="connect__call modal-open" type="button" data-menu-link>Заказать звонок</button>
+                        </div>
+                    </div>
+                    <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-burger>
+                        <span class="burger__line"></span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <div class="modal modal--call" role="dialog" aria-modal="true">
+            <div class="modal__body">
+                <div class="modal__content">
+                    <button class="modal__close" type="button">
+                        <span class="sr-only">Закрыть модальное окно</span>
+                    </button>
+                    <span class="modal__title title">
+                        Оставьте заявку и мы вам перезвоним
+                    </span>
+                    <p class="modal__subtitle">
+                        наши специалисты свяжутся с вами в ближайшее время
+                    </p>
+                    <form class="modal__form form" action="#">
+                        <div class="form__items">
+                            <div class="form__item">
+                                <label class="form__label" for="modal__name">Имя</label>
+                                <input class="form__field" name="name" id="modal__name" type="name" required>
+                            </div>
+                            <div class="form__item">
+                                <label class="form__label" for="modal__phone">
+                                    Телефон <span class="form__label--accent">*</span>
+                                </label>
+                                <input class="form__field" name="phone" id="modal__phone" type="tel" required>
+                            </div>
+                        </div>
+                        <button class="modal__button button" type="submit">
+                            Отправить
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal modal--calc" role="dialog" aria-modal="true">
+            <div class="modal__body">
+                <div class="modal__content calc-modal">
+                    <button class="modal__close" type="button">
+                        <span class="sr-only">Закрыть модальное окно</span>
+                    </button>
+                    <span class="calc-modal__title modal__title title">
+                        расчёт перевозки
+                    </span>
+
+                    <div class="calc-way">
+                        <div class="calc-way__item calc-way__item--from">
+                            <span class="calc-way__title">Откуда</span>
+                            <div class="calc-way__info">
+                                <span class="calc-way__text">Москва</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-way__item calc-way__item--img">
+                            <div class="calc-way__img" style="background-image: url('img/calc-img.jpg');" aria-hidden></div>
+                        </div>
+
+                        <div class="calc-way__item calc-way__item--to">
+                            <span class="calc-way__title">Куда</span>
+                            <div class="calc-way__info">
+                                <span class="calc-way__text">Саранск</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-modal__info">
+                        <div class="calc-cost">
+                            <span class="calc-cost__subtitle">
+                                Стоимость перевозки
+                            </span>
+                            <span class="calc-cost__sum">
+                                25 540
+                                <span class="calc-cost__currency">руб*</span>
+                            </span>
+                        </div>
+
+                        <div class="calc-descr">
+                            <span class="calc-descr__title">
+                                Тент с г/п 20 т. (есть 2 свободных авто)
+                            </span>
+                        </div>
+
+                        <div class="calc-applications">
+                            <span class="calc-applications__text">
+                                принимаем заявки
+                                <span class="calc-applications__accent">24/7</span>
+                            </span>
+
+                            <span class="calc-distance">
+                                Расстояние
+                                <span class="calc-distance__subtitle">
+                                    681 <span class="calc-distance__small">км</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <p class="calc-modal__subtext">
+                        <span class="calc-modal__accent">*</span>
+                        Обращаем Ваше внимание на то, что приведённые цены и характеристики услуг носят исключительно ознакомительный характер и не являются публичной офертой, определённой пунктом 2
+                        статьи 437 Гражданского кодекса Российской Федерации. Для получения подробной информации о характеристиках услуг, их наличия и стоимости обращайтесь, пожалуйста, к специалистам
+                        нашей компании.
+                    </p>
+
+                    <form class="modal__form form" action="#">
+                        <span class="form__title">
+                            оставьте заявку и наши специалисты свяжутся с вами в ближайшее время
+                        </span>
+                        <div class="form__content">
+                            <div class="form__items">
+                                <div class="form__item">
+                                    <label class="form__label" for="calc-modal__name">Имя</label>
+                                    <input class="form__field" name="name" id="calc-modal__name" type="name" required>
+                                </div>
+                                <div class="form__item">
+                                    <label class="form__label" for="calc-modal__phone">
+                                        Телефон <span class="form__label--accent">*</span>
+                                    </label>
+                                    <input class="form__field" name="phone" id="calc-modal__phone" type="tel" required>
+                                </div>
+                            </div>
+                            <button class="modal__button button" type="submit">
+                                Отправить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <main class="main">
+            <section class="hero" id="hero">
+                <div class="hero__bg" style="background-image: url('img/hero-bg.jpg');" aria-hidden></div>
+                <div class="container">
+                    <div class="hero__wrapper">
+                        <h1 class="hero__title">
+                            Грузоперевозки по России
+                            <span class="hero__subtitle">Доставка грузов по Москве</span>
+                        </h1>
+
+                        <div class="calc" id="calc">
+                            <div class="calc__wrapper">
+                                <div class="calc__content">
+                                    <span class="calc__title">Расчёт перевозки</span>
+                                    <form class="calc__form">
+                                        <!-- Если нужно скрыть fieldset, то добавить к нему класс calc__list--hidden -->
+                                        <fieldset class="calc__list  calc__list--city">
+                                            <legend class="sr-only">Откуда-куда</legend>
+
+                                            <div class="calc__item">
+                                                <label class="sr-only" for="departure">Откуда</label>
+                                                <input class="calc__field departure js-departure" id="departure" type="text" name="city-departure" list="cities" placeholder="Москва" required>
+                                                <datalist id="cities">
+                                                    <option value="Москва">Москва</option>
+                                                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                                                    <option value="Новосибирск">Новосибирск</option>
+                                                    <option value="Екатеринбург">Екатеринбург</option>
+                                                    <option value="Казань">Казань</option>
+                                                    <option value="Нижний Новгород">Нижний Новгород</option>
+                                                    <option value="Челябинск">Челябинск</option>
+                                                    <option value="Красноярск">Красноярск</option>
+                                                    <option value="Самара">Самара</option>
+                                                    <option value="Уфа">Уфа</option>
+                                                    <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+                                                    <option value="Омск">Омск</option>
+                                                    <option value="Краснодар">Краснодар</option>
+                                                    <option value="Воронеж">Воронеж</option>
+                                                    <option value="Пермь">Пермь</option>
+                                                    <option value="Волгоград">Волгоград</option>
+                                                </datalist>
+                                            </div>
+
+                                            <div class="calc__item">
+                                                <label class="sr-only" for="destination">Куда</label>
+                                                <input class="calc__field js-destination" id="destination" type="text" name="city-destination" list="cities-destination" placeholder="Воронеж" required>
+                                                <datalist id="cities-destination">
+                                                    <option value="Москва">Москва</option>
+                                                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                                                    <option value="Новосибирск">Новосибирск</option>
+                                                    <option value="Екатеринбург">Екатеринбург</option>
+                                                    <option value="Казань">Казань</option>
+                                                    <option value="Нижний Новгород">Нижний Новгород</option>
+                                                    <option value="Челябинск">Челябинск</option>
+                                                    <option value="Красноярск">Красноярск</option>
+                                                    <option value="Самара">Самара</option>
+                                                    <option value="Уфа">Уфа</option>
+                                                    <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+                                                    <option value="Омск">Омск</option>
+                                                    <option value="Краснодар">Краснодар</option>
+                                                    <option value="Воронеж">Воронеж</option>
+                                                    <option value="Пермь">Пермь</option>
+                                                    <option value="Волгоград">Волгоград</option>
+                                                </datalist>
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset class="calc__list calc__list--hidden calc__list--volume">
+                                            <legend class="sr-only">Объём груза</legend>
+
+                                            <label class="calc__item">
+                                                <input class="calc__hidden" type="radio" name="calc-volume" value="90">
+                                                <span class="calc__visible" aria-hidden="true"></span>
+                                                90 куб. м.
+                                            </label>
+
+                                            <label class="calc__item">
+                                                <input class="calc__hidden" type="radio" name="calc-volume" value="110">
+                                                <span class="calc__visible" aria-hidden="true"></span>
+                                                110 куб. м.
+                                            </label>
+
+                                            <label class="calc__item">
+                                                <input class="calc__hidden" type="radio" name="calc-volume" value="Коники">
+                                                <span class="calc__visible" aria-hidden="true"></span>
+                                                Коники
+                                            </label>
+
+                                            <label class="calc__item">
+                                                <input class="calc__hidden" type="radio" name="calc-volume" value="Рефрижератор">
+                                                <span class="calc__visible" aria-hidden="true"></span>
+                                                Рефрижератор
+                                            </label>
+                                        </fieldset>
+                                        <button class="calc__submit button" type="submit">Далее</button>
+                                    </form>
+                                </div>
+                                <p class="calc__subtext">
+                                    *стоимость перевозки рассчитывается исходя из того, что по умолчанию идёт машина 20 тонн.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about section" id="about">
+                <div class="container">
+                    <h2 class="title">О компании</h2>
+                    <div class="about__wrapper">
+                        <div class="about__bg" style="background-image: url('img/about-bg.jpg');" aria-hidden></div>
+                        <div class="about__content">
+                            <div class="about__text">
+                                <p>
+                                    Достоинство профессиональной транспортной компании – большой автопарк. Это гарантирует, что даже в случае неисправности одной из машин, которая должна была выйти в
+                                    рейс, будет произведена
+                                    её
+                                    немедленная замена. Заказчик просто не заметит никаких сложностей, потому что избавить вас от подобных сложностей – наша профессиональная задача.
+                                </p>
+                            </div>
+                            <a class="about__btn button" href="#" data-goto="#contacts">оставить заявку</a>
+                        </div>
+                    </div>
+                    <div class="about__swiper swiper">
+                        <ul class="about__items swiper-wrapper">
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                            <li class="about__item swiper-slide">
+                                <img class="about__img" src="img/about-bg.jpg" alt="Картинка 1" width="376" height="251" loading="lazy">
+                            </li>
+                        </ul>
+                        <div class="about__pagination swiper-pagination"></div>
+                        <div class="about__buttons">
+                            <button class="about__button about__button--prev swiper-button-prev" type="button">
+                            </button>
+                            <button class="about__button about__button--next swiper-button-next" type="button">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services section" id="services">
+                <div class="container">
+                    <h2 class="title">наши услуги</h2>
+                    <ul class="services__items">
+                        <li class="services__item">
+                            <article class="services-card">
+                                <div class="services-card__content">
+                                    <span class="services-card__subtitle">Тентовые перевозки 90 м³</span>
+                                    <button class="services-card__button modal-open button" type="button">Подробнее</button>
+                                </div>
+                                <span class="services-card__decor" style="background-image: url('img/services/1.png');" aria-hidden></span>
+                            </article>
+                        </li>
+
+                        <li class="services__item">
+                            <article class="services-card">
+                                <div class="services-card__content">
+                                    <span class="services-card__subtitle">Тентовые перевозки 110 м³</span>
+                                    <button class="services-card__button modal-open button" type="button">Подробнее</button>
+                                </div>
+                                <span class="services-card__decor" style="background-image: url('img/services/2.png');" aria-hidden></span>
+                            </article>
+                        </li>
+
+                        <li class="services__item">
+                            <article class="services-card">
+                                <div class="services-card__content">
+                                    <span class="services-card__subtitle">Рефрижераторные перевозки</span>
+                                    <button class="services-card__button modal-open button" type="button">Подробнее</button>
+                                </div>
+                                <span class="services-card__decor" style="background-image: url('img/services/3.png');" aria-hidden></span>
+                            </article>
+                        </li>
+
+                        <li class="services__item">
+                            <article class="services-card">
+                                <div class="services-card__content">
+                                    <span class="services-card__subtitle">Коники</span>
+                                    <button class="services-card__button modal-open button" type="button">Подробнее</button>
+                                </div>
+                                <span class="services-card__decor" style="background-image: url('img/services/4.png');" aria-hidden></span>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="contacts section" id="contacts">
+                <div class="container">
+                    <div class="contacts__wrapper">
+                        <div class="contacts__content">
+                            <h2 class="title">Контакты</h2>
+                            <address>
+                                <dl class="contacts__items">
+                                    <div class="contacts__item contacts__item--address">
+                                        <dt class="contacts__name">Наш адрес:</dt>
+                                        <dd class="contacts__info">
+                                            Российская Федерация,
+                                            г. Подольск, ул. Северная, 13
+                                        </dd>
+                                    </div>
+
+                                    <div class="contacts__item">
+                                        <dt class="contacts__name">Email:</dt>
+                                        <dd class="contacts__info">
+                                            <a href="mailto:info@tk-ks.ru">
+                                                info@tk-ks.ru
+                                            </a>
+                                        </dd>
+                                    </div>
+
+                                    <div class="contacts__item">
+                                        <dt class="contacts__name">Телефон:</dt>
+                                        <dd class="contacts__info">
+                                            <a href="tel:+74959885516">
+                                                +7 (495) 988-55-16
+                                            </a>
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </address>
+                        </div>
+
+                        <form class="contacts__form form" action="#">
+                            <h3 class="form__title title">
+                                оставить заявку
+                            </h3>
+                            <p class="form__subtitle">
+                                наши специалисты свяжутся с вами в ближайшее время
+                            </p>
+                            <div class="form__items">
+                                <div class="form__item">
+                                    <label class="form__label" for="name">Имя</label>
+                                    <input class="form__field" name="name" type="text" id="name" required>
+                                </div>
+                                <div class="form__item">
+                                    <label class="form__label" for="tel">Телефон</label>
+                                    <input class="form__field" name="tel" type="tel" id="tel" required>
+                                </div>
+                            </div>
+                            <button class="form__button button" type="submit">Отправить</button>
+                            <label class="form__agree">
+                                <input class="form__hidden" type="checkbox" name="agree">
+                                <span class="form__visible" aria-hidden="true"></span>
+                                <span>Я согласен на обработку персональных данных и принимаю условия <a class="form__link" href="#">пользовательского соглашения</a>.</span>
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__top">
+                    <a class="footer__logo logo" href="#" data-goto="#hero">
+                        <img class="logo__img" src="img/logo-main.png" alt="Логотип ТК «Карго Сервис»" width="200" height="52">
+                    </a>
+                    <ul class="footer__menu">
+                        <li class="footer__item">
+                            <a class="footer__link" href="#">О нас</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="#">Услуги</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="#">Контакты</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="#">Личный кабинет</a>
+                        </li>
+                    </ul>
+                    <div class="connect footer__connect">
+                        <a class="connect__phone" href="tel:+74959885516">+7 (495) 988-55-16</a>
+                        <button class="connect__call modal-open" type="button">Заказать звонок</button>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <span class="footer__copy">© ТК «Карго Сервис», 2023</span>
+                    <a class="footer__police" href="#">Политика конфиденциальности</a>
+                    <ul class="footer__socials">
+                        <li class="footer__social">
+                            <a class="footer__social-link" href="#" target="_blank" style="background-image: url('img/socials/telegram.svg');">
+                                <span class="sr-only">Телеграм</span>
+                            </a>
+                        </li>
+                        <li class="footer__social">
+                            <a class="footer__social-link" href="#" target="_blank" style="background-image: url('img/socials/vk.svg');">
+                                <span class="sr-only">Вк</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+</body>
+
+</html>
