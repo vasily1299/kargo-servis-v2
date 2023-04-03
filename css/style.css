@@ -1900,3 +1900,49 @@ body {
 		font-size: 16px;
 	}
 }
+
+.calc__content{
+	position: relative;
+}
+
+#js-calc-error{
+	position: absolute;
+	bottom: 15px;
+	left: 0;
+	font-size: 13px;
+	color: red;
+	width: 100%;
+	text-align: center;
+}
+
+.js-loading{
+	position: relative;
+}
+.js-loading:before,
+.js-loading:after{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.js-loading:before{
+	background: #ad1719;
+	border-radius: 12px;
+	content: '';
+}
+.js-loading:after {
+	content: '';
+	width: 1rem;
+	height: 1rem;
+	vertical-align: -0.125em;
+	border: 0.20em solid white;
+	border-right-color: transparent;
+	border-radius: 50%;
+	-webkit-animation: .75s linear infinite spinner-border;
+	animation: .75s linear infinite spinner-border;
+}
+@keyframes spinner-border {
+	to {
+		transform: rotate(360deg)
+	}
+}

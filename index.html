@@ -14,9 +14,9 @@
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v2">
 
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js?v2" defer></script>
 </head>
 
 <body class="body">
@@ -112,18 +112,18 @@
                         <div class="calc-way__item calc-way__item--from">
                             <span class="calc-way__title">Откуда</span>
                             <div class="calc-way__info">
-                                <span class="calc-way__text">Москва</span>
+                                <span class="calc-way__text" id="js-calc-modal-from">Москва</span>
                             </div>
                         </div>
 
                         <div class="calc-way__item calc-way__item--img">
-                            <div class="calc-way__img" style="background-image: url('img/fura_2.png');" aria-hidden></div>
+                            <div class="calc-way__img" style="background-image: url('img/calc-img.jpg');" aria-hidden></div>
                         </div>
 
                         <div class="calc-way__item calc-way__item--to">
                             <span class="calc-way__title">Куда</span>
                             <div class="calc-way__info">
-                                <span class="calc-way__text">Саранск</span>
+                                <span class="calc-way__text" id="js-calc-modal-to">Саранск</span>
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                                 Стоимость перевозки
                             </span>
                             <span class="calc-cost__sum">
-                                25 540
+                                <span id="js-calc-modal-amount">25 540</span>
                                 <span class="calc-cost__currency">руб*</span>
                             </span>
                         </div>
@@ -154,7 +154,8 @@
                             <span class="calc-distance">
                                 Расстояние
                                 <span class="calc-distance__subtitle">
-                                    681 <span class="calc-distance__small">км</span>
+                                    <span id="js-calc-modal-distance">681</span>
+                                    <span class="calc-distance__small">км</span>
                                 </span>
                             </span>
                         </div>
@@ -214,48 +215,12 @@
 
                                             <div class="calc__item">
                                                 <label class="sr-only" for="departure">Откуда</label>
-                                                <input class="calc__field departure js-departure" id="departure" type="text" name="city-departure" list="cities" placeholder="Москва" required>
-                                                <datalist id="cities">
-                                                    <option value="Москва">Москва</option>
-                                                    <option value="Санкт-Петербург">Санкт-Петербург</option>
-                                                    <option value="Новосибирск">Новосибирск</option>
-                                                    <option value="Екатеринбург">Екатеринбург</option>
-                                                    <option value="Казань">Казань</option>
-                                                    <option value="Нижний Новгород">Нижний Новгород</option>
-                                                    <option value="Челябинск">Челябинск</option>
-                                                    <option value="Красноярск">Красноярск</option>
-                                                    <option value="Самара">Самара</option>
-                                                    <option value="Уфа">Уфа</option>
-                                                    <option value="Ростов-на-Дону">Ростов-на-Дону</option>
-                                                    <option value="Омск">Омск</option>
-                                                    <option value="Краснодар">Краснодар</option>
-                                                    <option value="Воронеж">Воронеж</option>
-                                                    <option value="Пермь">Пермь</option>
-                                                    <option value="Волгоград">Волгоград</option>
-                                                </datalist>
+                                                <input class="calc__field departure js-departure" id="departure" type="text" name="city-departure" placeholder="Москва" required>
                                             </div>
 
                                             <div class="calc__item">
                                                 <label class="sr-only" for="destination">Куда</label>
-                                                <input class="calc__field js-destination" id="destination" type="text" name="city-destination" list="cities-destination" placeholder="Воронеж" required>
-                                                <datalist id="cities-destination">
-                                                    <option value="Москва">Москва</option>
-                                                    <option value="Санкт-Петербург">Санкт-Петербург</option>
-                                                    <option value="Новосибирск">Новосибирск</option>
-                                                    <option value="Екатеринбург">Екатеринбург</option>
-                                                    <option value="Казань">Казань</option>
-                                                    <option value="Нижний Новгород">Нижний Новгород</option>
-                                                    <option value="Челябинск">Челябинск</option>
-                                                    <option value="Красноярск">Красноярск</option>
-                                                    <option value="Самара">Самара</option>
-                                                    <option value="Уфа">Уфа</option>
-                                                    <option value="Ростов-на-Дону">Ростов-на-Дону</option>
-                                                    <option value="Омск">Омск</option>
-                                                    <option value="Краснодар">Краснодар</option>
-                                                    <option value="Воронеж">Воронеж</option>
-                                                    <option value="Пермь">Пермь</option>
-                                                    <option value="Волгоград">Волгоград</option>
-                                                </datalist>
+                                                <input class="calc__field js-destination" id="destination" type="text" name="city-destination" placeholder="Воронеж" required>
                                             </div>
                                         </fieldset>
 
@@ -263,31 +228,32 @@
                                             <legend class="sr-only">Объём груза</legend>
 
                                             <label class="calc__item">
-                                                <input class="calc__hidden" type="radio" name="calc-volume" value="90">
+                                                <input class="calc__hidden js-calc-volume" type="checkbox" name="calc-volume" value="90" checked>
                                                 <span class="calc__visible" aria-hidden="true"></span>
                                                 90 куб. м.
                                             </label>
 
                                             <label class="calc__item">
-                                                <input class="calc__hidden" type="radio" name="calc-volume" value="110">
+                                                <input class="calc__hidden js-calc-volume" type="checkbox" name="calc-volume" value="110">
                                                 <span class="calc__visible" aria-hidden="true"></span>
                                                 110 куб. м.
                                             </label>
 
                                             <label class="calc__item">
-                                                <input class="calc__hidden" type="radio" name="calc-volume" value="Коники">
+                                                <input class="calc__hidden js-calc-service" type="checkbox" name="calc-service" value="Коники">
                                                 <span class="calc__visible" aria-hidden="true"></span>
                                                 Коники
                                             </label>
 
                                             <label class="calc__item">
-                                                <input class="calc__hidden" type="radio" name="calc-volume" value="Рефрижератор">
+                                                <input class="calc__hidden js-calc-service" type="checkbox" name="calc-service" value="Рефрижератор">
                                                 <span class="calc__visible" aria-hidden="true"></span>
                                                 Рефрижератор
                                             </label>
                                         </fieldset>
-                                        <button class="calc__submit button" type="submit">Далее</button>
+                                        <button class="calc__submit button" type="button" id="js-calc-next">Далее</button>
                                     </form>
+                                    <div id="js-calc-error"></div>
                                 </div>
                                 <p class="calc__subtext">
                                     *стоимость перевозки рассчитывается исходя из того, что по умолчанию идёт машина 20 тонн.
@@ -513,7 +479,9 @@
         </footer>
     </div>
 
+    <div id="main-map"></div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=184f32d6-b43b-470a-bb3a-125846ca1636&lang=ru_RU"></script>
 </body>
 
 </html>
