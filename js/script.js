@@ -318,7 +318,9 @@ document.addEventListener("DOMContentLoaded", () => {
             modalTo.textContent = toData
             modalDistance.textContent = distance.toString()
 
-            console.info(`Расстояние: ${distance} , услуга: ${volumeForm?.value||serviceForm?.value} , цена ${cost}`);
+            const result = `Откуда: ${fromData} , куда: ${toData}. Расстояние: ${distance} , услуга: ${volumeForm?.value||serviceForm?.value} , цена ${formatter.format(cost)}`
+            console.info(result);
+            document.getElementById('js-calc-result').value = result
             openModalCalc(cbClose)
         }
         e.preventDefault()
@@ -336,4 +338,94 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     ymaps.ready(init);
+
+    /**
+     *
+     *
+     * */
+    $.validator.methods.tel = function( value, element ) {
+        return this.optional( element ) || value.replace(/[^0-9]/g,'').length === 11
+    }
+    Array.from(document.getElementsByClassName('form')).forEach(form => {
+        const button = form.querySelector('button[type=submit]')
+        const inputs = Array.from(form.querySelectorAll('input, textarea'))
+
+        const checkValid = () => {
+            const valid = inputs.every(item => item.checkValidity() && $(item).valid())
+            if(valid === false || !$(form).validate().checkForm()){
+                button.disabled = true
+                button.classList.add('disabled')
+            }else{
+                button.disabled = false
+                button.classList.remove('disabled')
+            }
+        }
+
+        $(form).validate({
+            onfocusin: checkValid,
+            onkeyup: checkValid,
+            onclick: checkValid,
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2,
+                },
+                tel: {
+                    required: true,
+                    tel: true,
+                },
+                email: {
+                    required: true,
+                    email: true,
+                },
+                agree: "required"
+            },
+            messages: {
+                name: {
+                    required: "Введите свое имя",
+                    minlength: $.validator.format("Введите {0} символа"),
+                },
+                tel: "",
+                email: {
+                    required: "Введите свою почту",
+                    email: "Неправильно введен адрес почты",
+                },
+                agree: ""
+            },
+        })
+        checkValid()
+    })
+
+    $(function(){
+        $("input[name=tel]").mask("+7 (999) 999-99-99");
+    });
 })
+async function submitForm(event) {
+    event.preventDefault(); // отключаем перезагрузку/перенаправление страницы
+    try {
+        // Формируем запрос
+        const response = await fetch(event.target.action, {
+            method: 'POST',
+            body: new FormData(event.target)
+        });
+        // проверяем, что ответ есть
+        if (!response.ok) throw (`Ошибка при обращении к серверу: ${response.status}`);
+        // проверяем, что ответ действительно JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw ('Ошибка обработки. Ответ не JSON');
+        }
+        // обрабатываем запрос
+        const json = await response.json();
+        if (json.result === "success") {
+            // в случае успеха
+            alert(json.info);
+        } else {
+            // в случае ошибки
+            console.log(json);
+            throw (json.info);
+        }
+    } catch (error) { // обработка ошибки
+        alert(error);
+    }
+}

@@ -77,17 +77,17 @@
                     <p class="modal__subtitle">
                         наши специалисты свяжутся с вами в ближайшее время
                     </p>
-                    <form class="modal__form form" action="#">
+                    <form class="modal__form form" onsubmit="submitForm(event)" action="send.php">
                         <div class="form__items">
                             <div class="form__item">
                                 <label class="form__label" for="modal__name">Имя</label>
-                                <input class="form__field" name="name" id="modal__name" type="name" required>
+                                <input class="form__field" name="name" id="modal__name" type="text" required>
                             </div>
                             <div class="form__item">
                                 <label class="form__label" for="modal__phone">
                                     Телефон <span class="form__label--accent">*</span>
                                 </label>
-                                <input class="form__field" name="phone" id="modal__phone" type="tel" required>
+                                <input class="form__field" name="tel" id="modal__phone" type="text" required>
                             </div>
                         </div>
                         <button class="modal__button button" type="submit">
@@ -168,7 +168,7 @@
                         нашей компании.
                     </p>
 
-                    <form class="modal__form form" action="#">
+                    <form class="modal__form form" onsubmit="submitForm(event)" action="send.php">
                         <span class="form__title">
                             оставьте заявку и наши специалисты свяжутся с вами в ближайшее время
                         </span>
@@ -176,15 +176,16 @@
                             <div class="form__items">
                                 <div class="form__item">
                                     <label class="form__label" for="calc-modal__name">Имя</label>
-                                    <input class="form__field" name="name" id="calc-modal__name" type="name" required>
+                                    <input class="form__field" name="name" id="calc-modal__name" type="text" required>
                                 </div>
                                 <div class="form__item">
                                     <label class="form__label" for="calc-modal__phone">
                                         Телефон <span class="form__label--accent">*</span>
                                     </label>
-                                    <input class="form__field" name="phone" id="calc-modal__phone" type="tel" required>
+                                    <input class="form__field" name="tel" id="calc-modal__phone" type="text" required>
                                 </div>
                             </div>
+                            <textarea id="js-calc-result" class="form__hidden" name="calc"></textarea>
                             <button class="modal__button button" type="submit">
                                 Отправить
                             </button>
@@ -405,7 +406,7 @@
                             </address>
                         </div>
 
-                        <form class="contacts__form form" action="#">
+                        <form class="contacts__form form" onsubmit="submitForm(event)" action="send.php">
                             <h3 class="form__title title">
                                 оставить заявку
                             </h3>
@@ -419,12 +420,12 @@
                                 </div>
                                 <div class="form__item">
                                     <label class="form__label" for="tel">Телефон</label>
-                                    <input class="form__field" name="tel" type="tel" id="tel" required>
+                                    <input class="form__field" name="tel" type="text" id="tel" required>
                                 </div>
                             </div>
                             <button class="form__button button" type="submit">Отправить</button>
                             <label class="form__agree">
-                                <input class="form__hidden" type="checkbox" name="agree">
+                                <input class="form__hidden" type="checkbox" name="agree" value="1" required>
                                 <span class="form__visible" aria-hidden="true"></span>
                                 <span>Я согласен на обработку персональных данных и принимаю условия <a class="form__link" href="#">пользовательского соглашения</a>.</span>
                             </label>
@@ -482,6 +483,9 @@
     <div id="main-map"></div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=184f32d6-b43b-470a-bb3a-125846ca1636&lang=ru_RU"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
 </body>
 
 </html>

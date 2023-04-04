@@ -1946,3 +1946,18 @@ body {
 		transform: rotate(360deg)
 	}
 }
+
+button:disabled{
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+.form__item{
+	position: relative;
+}
+.form__item label.error {
+	font-size: 13px;
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	color: red;
+}
