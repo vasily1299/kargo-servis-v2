@@ -165,6 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
         '115': 1.2,
     }
     const servicePrices = {
+        '90': 1,
+        '110': 1.2,
         'Коники': 1.15,
         'Рефрижератор': 1.3,
     }
