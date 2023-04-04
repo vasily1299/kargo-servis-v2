@@ -209,7 +209,7 @@
                             <div class="calc__wrapper">
                                 <div class="calc__content">
                                     <span class="calc__title">Расчёт перевозки</span>
-                                    <form class="calc__form">
+                                    <form class="calc__form" method="post" id="calc-form" onsubmit="submitForm(event)" action="send.php">
                                         <!-- Если нужно скрыть fieldset, то добавить к нему класс calc__list--hidden -->
                                         <fieldset class="calc__list  calc__list--city">
                                             <legend class="sr-only">Откуда-куда</legend>
