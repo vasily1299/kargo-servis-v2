@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     required: "Введите свое имя",
                     minlength: $.validator.format("Введите {0} символа"),
                 },
-                tel: "",
+                phone: "",
                 email: {
                     required: "Введите свою почту",
                     email: "Неправильно введен адрес почты",
