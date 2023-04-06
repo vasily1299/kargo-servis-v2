@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     required: true,
                     minlength: 2,
                 },
-                tel: {
+                phone: {
                     required: true,
                     tel: true,
                 },
@@ -400,6 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $(function(){
         $("input[name=tel]").mask("+7 (999) 999-99-99");
+        $("input[name=phone]").mask("+7 (999) 999-99-99");
     });
 })
 async function submitForm(event) {
